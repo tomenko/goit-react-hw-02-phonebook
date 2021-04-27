@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const Filter = ({id, hendleInputFilter}) => {
     return (
@@ -15,3 +15,7 @@ const Filter = ({id, hendleInputFilter}) => {
 }
 
 export default Filter;
+
+Filter.propTypes = {
+  hendleInputFilter: PropTypes.func.isRequired,
+};

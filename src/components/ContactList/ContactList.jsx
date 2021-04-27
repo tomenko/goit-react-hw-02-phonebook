@@ -1,4 +1,5 @@
-import React from 'react';
+import ContactItem from '../ContactItem'
+import PropTypes from 'prop-types'
 
 const ContactList = ({ contacts, onDeleteContact }) => (
 	<ul>
@@ -6,8 +7,12 @@ const ContactList = ({ contacts, onDeleteContact }) => (
 			const {id, name, number} = contact
 			return (
                 <li key={id}>
-                    <p>{`${name}: ${number}`}</p>
-                    <button type= "button" onClick = {() => onDeleteContact(id)} >Delete</button>
+                    <ContactItem
+						id={id}
+						name={name}
+						number={number}
+						onDeleteContact={onDeleteContact}
+					/>
                 </li>
             )
 		})}
@@ -15,3 +20,8 @@ const ContactList = ({ contacts, onDeleteContact }) => (
 )
 
 export default ContactList;
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  onClick: PropTypes.func,
+};

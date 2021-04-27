@@ -45,16 +45,6 @@ class App extends Component {
     }));
   };
 
-  
-/*   getCurrentContacts = () => {
-    const { contacts, filter } = this.state;
-    const normalFilter = filter.toLowerCase();
-
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(normalFilter),
-    );
-  }; */
-
   getCurrentContacts = () => {
     const { filter, contacts } = this.state;
     const regExp = new RegExp(filter, 'gi');
@@ -66,19 +56,30 @@ class App extends Component {
   };
 
   render() {
-      console.log(this.getCurrentContacts());
-      return (
+    const onSubmitForm = this.formSubmitHandler;
+    const id = shortid.generate;
+    const hendleInputFilter = this.hendleInputFilter;
+    const contacts = this.getCurrentContacts;
+    const onDeleteContact = this.deleteContact;
+
+    return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm onSubmitForm = {this.formSubmitHandler} />
+        <ContactForm
+          onSubmitForm={onSubmitForm}
+        />
         <h2>Contacts</h2>
-        <Filter id={shortid.generate()} hendleInputFilter = {this.hendleInputFilter} />
-        <ContactList contacts={this.getCurrentContacts()}  onDeleteContact={this.deleteContact}/>
+        <Filter
+          id={id()}
+          hendleInputFilter={hendleInputFilter}
+        />
+        <ContactList
+          contacts={contacts()}
+          onDeleteContact={onDeleteContact}
+        />
       </>
     )
   }
 }
-
-
 
 export default App;

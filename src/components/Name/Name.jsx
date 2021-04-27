@@ -1,8 +1,3 @@
-import React from 'react';
-/* import css from './Name.module.css' */
-
-
-
 const Name = ({ name, hendleInputChange, idInput, htmlFor}) => {
      
     return (

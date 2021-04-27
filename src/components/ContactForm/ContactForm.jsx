@@ -19,7 +19,6 @@ class ContactForm extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
-      console.log(this.state);
       this.props.onSubmitForm(this.state)
     };
     
@@ -29,8 +28,19 @@ class ContactForm extends Component {
       return (
         <form onSubmit = {this.handleSubmit}>
           
-          <Name name={name} hendleInputChange={this.hendleInputChange} idInput={this.loginInputNameId} htmlFor={this.loginInputNameId}/>
-          <Number number={number} hendleInputChange={this.hendleInputChange} idInput={this.loginInputNamberId} htmlFor={this.loginInputNamberId}/>
+          <Name
+            name={name}
+            hendleInputChange={this.hendleInputChange}
+            idInput={this.loginInputNameId}
+            htmlFor={this.loginInputNameId}
+          />
+
+          <Number
+            umber={number}
+            hendleInputChange={this.hendleInputChange}
+            idInput={this.loginInputNamberId}
+            htmlFor={this.loginInputNamberId}
+          />
           
           <button type="submit">Add contact</button>
         </form>
