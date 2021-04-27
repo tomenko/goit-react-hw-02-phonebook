@@ -12,16 +12,21 @@ class ContactForm extends Component {
     loginInputNameId = shortid.generate(); 
     loginInputNamberId = shortid.generate(); 
   
-    hendleInputChange = (event) => {
+    hendleInputChange = event => {
       const {value, name} = event.currentTarget;
-      this.setState({[name]: value})
+      this.setState({ [name]: value });
     }
 
     handleSubmit = event => {
       event.preventDefault();
       this.props.onSubmitForm(this.state)
+      this.reset()
     };
     
+    reset = () => {
+      this.setState({ name: '', number: '' })
+    };
+  
     render() {
       const { name, number } = this.state;
       
@@ -36,7 +41,7 @@ class ContactForm extends Component {
           />
 
           <Number
-            umber={number}
+            number={number}
             hendleInputChange={this.hendleInputChange}
             idInput={this.loginInputNamberId}
             htmlFor={this.loginInputNamberId}
